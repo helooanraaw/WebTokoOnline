@@ -17,21 +17,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Clear existing categories and products to avoid duplication/conflicts
+        Product::query()->delete();
+        Category::query()->delete();
+
         // Admin Account
-        User::create([
-            'name' => 'Admin Sekolah',
-            'email' => 'admin@sekolah.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-        ]);
+        User::updateOrCreate(
+            ['email' => 'admin@sekolah.com'],
+            [
+                'name' => 'Admin Sekolah',
+                'password' => Hash::make('password'),
+                'role' => 'admin',
+            ]
+        );
 
         // Customer Account
-        User::create([
-            'name' => 'Customer SMK',
-            'email' => 'customer@sekolah.com',
-            'password' => Hash::make('password'),
-            'role' => 'customer',
-        ]);
+        User::updateOrCreate(
+            ['email' => 'customer@sekolah.com'],
+            [
+                'name' => 'Customer SMK',
+                'password' => Hash::make('password'),
+                'role' => 'customer',
+            ]
+        );
 
         // Categories and Products
         $categoriesData = [
