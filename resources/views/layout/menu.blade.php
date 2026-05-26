@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="{{ route('homepage') }}">
-            <i class="fab fa-apple mr-2" style="font-size: 1.35rem; vertical-align: middle;"></i> PakPras Store
+            <i class="fab fa-apple mr-2" style="font-size: 1.35rem; vertical-align: middle; color: var(--color-text-primary);"></i> iStore PakPras
         </a>
         <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -20,11 +20,11 @@
             <ul class="navbar-nav ml-auto align-items-center">
                 <li class="nav-item">
                     <a class="nav-link position-relative mr-2" href="{{ route('cart.index') }}">
-                        <i class="fas fa-shopping-bag fa-lg text-white-50"></i>
+                        <i class="fas fa-shopping-bag fa-lg" style="color: var(--color-text-secondary);"></i>
                         @auth
                             @php $cartCount = Auth::user()->carts()->count(); @endphp
                             @if($cartCount > 0)
-                                <span class="badge badge-pill badge-primary position-absolute" style="top: -2px; right: -5px; font-size: 0.65rem; background-color: var(--primary);">{{ $cartCount }}</span>
+                                <span class="badge badge-pill badge-primary position-absolute" style="top: -2px; right: -5px; font-size: 0.65rem; background-color: var(--color-action-blue);">{{ $cartCount }}</span>
                             @endif
                         @endauth
                     </a>
@@ -34,11 +34,11 @@
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item ml-lg-2">
-                        <a class="btn btn-custom btn-sm" href="{{ route('register') }}">Daftar</a>
+                        <a class="btn-primary-filled" style="padding: 6px 12px; font-size: 12px;" href="{{ route('register') }}">Daftar</a>
                     </li>
                 @else
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
                             <i class="fas fa-user-circle mr-1"></i> {{ Auth::user()->name }}
                         </a>
                         <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm mt-2">

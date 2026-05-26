@@ -2,10 +2,10 @@
 
 @section('content')
 <div class="mb-4">
-    <a href="{{ route('admin.product.index') }}" class="text-muted text-decoration-none">
+    <a href="{{ route('admin.product.index') }}" class="text-muted text-decoration-none text-caption">
         <i class="fas fa-arrow-left mr-1"></i> Kembali ke Daftar
     </a>
-    <h2 class="font-weight-bold mt-2">Tambah Produk Baru</h2>
+    <h2 class="font-weight-bold mt-2 text-dark text-heading-lg">Tambah Produk Baru</h2>
 </div>
 
 <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
@@ -13,28 +13,28 @@
     <div class="row">
         <!-- Main Info -->
         <div class="col-md-8">
-            <div class="card border-0 shadow-sm p-4 mb-4">
+            <div class="card card-white p-4 mb-4">
                 <div class="form-group">
-                    <label class="font-weight-bold">Nama Produk</label>
+                    <label class="font-weight-600 text-dark text-body">Nama Produk</label>
                     <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" 
                            placeholder="Masukkan nama produk" value="{{ old('name') }}" required>
                     @error('name') <span class="invalid-feedback">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="form-group">
-                    <label class="font-weight-bold">Deskripsi Produk</label>
+                    <label class="font-weight-600 text-dark text-body">Deskripsi Produk</label>
                     <textarea name="description" class="form-control @error('description') is-invalid @enderror" 
-                              rows="5" placeholder="Tuliskan detail produk..." required>{{ old('description') }}</textarea>
+                               rows="5" placeholder="Tuliskan detail produk..." required>{{ old('description') }}</textarea>
                     @error('description') <span class="invalid-feedback">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="font-weight-bold">Harga Normal</label>
+                            <label class="font-weight-600 text-dark text-body">Harga Normal</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
+                                    <span class="input-group-text bg-light text-muted border-0" style="border-radius: var(--radius-links) 0 0 var(--radius-links);">Rp</span>
                                 </div>
                                 <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" 
                                        placeholder="0" value="{{ old('price') }}" required>
@@ -44,10 +44,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="font-weight-bold">Harga Promo (Opsional)</label>
+                            <label class="font-weight-600 text-dark text-body">Harga Promo (Opsional)</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text">Rp</span>
+                                    <span class="input-group-text bg-light text-muted border-0" style="border-radius: var(--radius-links) 0 0 var(--radius-links);">Rp</span>
                                 </div>
                                 <input type="number" name="promo_price" class="form-control @error('promo_price') is-invalid @enderror" 
                                        placeholder="Kosongkan jika tidak ada promo" value="{{ old('promo_price') }}">
@@ -61,9 +61,9 @@
 
         <!-- Sidebar Info -->
         <div class="col-md-4">
-            <div class="card border-0 shadow-sm p-4 mb-4">
+            <div class="card card-white p-4 mb-4">
                 <div class="form-group">
-                    <label class="font-weight-bold">Kategori</label>
+                    <label class="font-weight-600 text-dark text-body">Kategori</label>
                     <select name="category_id" class="form-control @error('category_id') is-invalid @enderror" required>
                         <option value="">-- Pilih Kategori --</option>
                         @foreach($categories as $category)
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="font-weight-bold">Stok</label>
+                    <label class="font-weight-600 text-dark text-body">Stok</label>
                     <input type="number" name="stock" class="form-control @error('stock') is-invalid @enderror" 
                            placeholder="0" value="{{ old('stock') }}" required>
                     @error('stock') <span class="invalid-feedback">{{ $message }}</span> @enderror
@@ -85,24 +85,24 @@
                 <div class="form-group">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" name="is_new" class="custom-control-input" id="is_new" {{ old('is_new') ? 'checked' : '' }}>
-                        <label class="custom-control-label font-weight-bold" for="is_new">Produk Terbaru</label>
+                        <label class="custom-control-label font-weight-600 text-dark text-body" for="is_new">Produk Terbaru</label>
                     </div>
                 </div>
 
                 <div class="form-group mb-0">
-                    <label class="font-weight-bold">Gambar Produk</label>
+                    <label class="font-weight-600 text-dark text-body">Gambar Produk</label>
                     <div class="custom-file">
                         <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="image" accept="image/*">
-                        <label class="custom-file-label" for="image">Pilih file...</label>
+                        <label class="custom-file-label" for="image" style="border-radius: var(--radius-links);">Pilih file...</label>
                     </div>
                     @error('image') <span class="text-danger small">{{ $message }}</span> @enderror
                     <div id="image-preview" class="mt-3 text-center d-none">
-                        <img src="" class="img-fluid rounded shadow-sm" style="max-height: 200px;">
+                        <img src="" class="img-fluid rounded" style="max-height: 200px;">
                     </div>
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block btn-lg shadow-sm">
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
                 <i class="fas fa-save mr-1"></i> Simpan Produk
             </button>
         </div>

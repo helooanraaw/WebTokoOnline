@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laporan Penjualan - PakPras Store</title>
+    <title>Laporan Penjualan - iStore PakPras</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <style>
@@ -22,7 +22,7 @@
             font-size: 28px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            color: #4F46E5;
+            color: #1d1d1f;
         }
         .report-title {
             font-size: 20px;
@@ -125,7 +125,7 @@
     <!-- Header Section -->
     <div class="header-print d-flex justify-content-between align-items-end">
         <div>
-            <div class="company-name">PakPras Store</div>
+            <div class="company-name">iStore PakPras</div>
             <div class="report-title">LAPORAN PENJUALAN</div>
             <div class="meta-info">
                 Periode: <strong>{{ \Carbon\Carbon::parse($startDate)->format('d/m/Y') }}</strong> s.d. <strong>{{ \Carbon\Carbon::parse($endDate)->format('d/m/Y') }}</strong>

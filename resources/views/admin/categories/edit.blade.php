@@ -2,20 +2,20 @@
 
 @section('content')
 <div class="mb-4">
-    <a href="{{ route('admin.category.index') }}" class="text-muted text-decoration-none">
+    <a href="{{ route('admin.category.index') }}" class="text-muted text-decoration-none text-caption">
         <i class="fas fa-arrow-left mr-1"></i> Kembali ke Daftar
     </a>
-    <h2 class="font-weight-bold mt-2">Edit Kategori</h2>
+    <h2 class="font-weight-bold mt-2 text-dark text-heading-lg">Edit Kategori: {{ $category->name }}</h2>
 </div>
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card border-0 shadow-sm p-4">
+        <div class="card card-white p-4">
             <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="name" class="font-weight-bold">Nama Kategori</label>
+                    <label for="name" class="font-weight-600 text-dark text-body">Nama Kategori</label>
                     <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" 
                            value="{{ old('name', $category->name) }}" required>
                     @error('name')
@@ -23,7 +23,7 @@
                     @enderror
                 </div>
                 
-                <hr>
+                <hr style="border-top: 1px solid #d2d2d7;">
                 <div class="d-flex justify-content-end">
                     <button type="submit" class="btn btn-info px-5">
                         <i class="fas fa-edit mr-1"></i> Update

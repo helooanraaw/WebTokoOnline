@@ -2,23 +2,23 @@
 
 @section('content')
 <!-- Sub-navigation Bar (Apple Style) -->
-<div class="bg-white border-bottom sticky-top py-2" style="top: 56px; z-index: 1020; box-shadow: 0 4px 10px rgba(0,0,0,0.01);">
+<div class="bg-white border-bottom sticky-top py-2" style="top: 48px; z-index: 1020;">
     <div class="container d-flex justify-content-between align-items-center">
         <div>
-            <span class="font-weight-600 text-dark h6 mb-0">{{ $product->name }}</span>
+            <span class="font-weight-600 text-dark text-body-lg">{{ $product->name }}</span>
         </div>
         <div class="d-flex align-items-center">
-            <span class="text-dark font-weight-600 mr-3" style="font-size: 0.95rem;">
+            <span class="text-dark font-weight-600 mr-3" style="font-size: 14px;">
                 Rp {{ number_format($product->promo_price ?? $product->price, 0, ',', '.') }}
             </span>
-            <a href="#buy-section" class="btn btn-custom btn-sm px-3 rounded-pill">Beli</a>
+            <a href="#buy-section" class="btn-primary-filled" style="padding: 6px 16px; font-size: 12px;">Comprar</a>
         </div>
     </div>
 </div>
 
 <div class="container py-5" id="buy-section">
     <nav aria-label="breadcrumb" class="mb-4">
-        <ol class="breadcrumb bg-transparent p-0" style="font-size: 0.8rem;">
+        <ol class="breadcrumb bg-transparent p-0" style="font-size: 12px;">
             <li class="breadcrumb-item"><a href="{{ route('homepage') }}" class="text-muted">Home</a></li>
             <li class="breadcrumb-item"><a href="{{ route('homepage', ['category' => $product->category->slug]) }}" class="text-muted">{{ $product->category->name }}</a></li>
             <li class="breadcrumb-item active text-dark font-weight-500">{{ $product->name }}</li>
@@ -28,13 +28,13 @@
     <div class="row">
         <!-- Left Column: Product Image Gallery -->
         <div class="col-md-7 mb-4">
-            <div class="p-4 rounded-lg d-flex align-items-center justify-content-center" style="background-color: #fafafa; border-radius: 20px; min-height: 480px; position: sticky; top: 120px;">
+            <div class="p-4 d-flex align-items-center justify-content-center" style="background-color: var(--color-surface-frost); border-radius: var(--radius-cards); min-height: 480px; position: sticky; top: 120px;">
                 @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" style="max-height: 420px; object-fit: contain;" alt="{{ $product->name }}">
+                    <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" style="max-height: 400px; object-fit: contain;" alt="{{ $product->name }}">
                 @else
                     <div class="text-muted text-center">
-                        <i class="fas fa-image fa-5x mb-3"></i>
-                        <p class="mb-0">Gambar tidak tersedia</p>
+                        <i class="fas fa-image fa-5x mb-3 text-muted"></i>
+                        <p class="mb-0 text-body">Gambar tidak tersedia</p>
                     </div>
                 @endif
             </div>
@@ -44,30 +44,30 @@
         <div class="col-md-5 pl-md-4">
             <div>
                 @if($product->is_new)
-                    <span class="text-primary text-uppercase tracking-wider font-weight-bold mb-2 d-block" style="font-size: 0.75rem; letter-spacing: 1px;">Baru</span>
+                    <span class="text-uppercase tracking-wider font-weight-bold mb-2 d-block text-caption" style="color: var(--color-action-blue);">Baru</span>
                 @endif
-                <h1 class="font-weight-bold mb-2 text-dark" style="letter-spacing: -0.5px; font-size: 2.2rem; line-height: 1.15;">{{ $product->name }}</h1>
-                <p class="text-muted mb-4" style="font-size: 0.95rem;">Model: Resmi Apple Indonesia (Garansi iBox 1 Tahun)</p>
+                <h1 class="font-weight-bold text-dark text-display-md mb-2">{{ $product->name }}</h1>
+                <p class="text-body text-muted mb-4">Model: Resmi Apple Indonesia (Garansi iBox 1 Tahun)</p>
 
                 <!-- Prices -->
                 <div class="mb-4">
                     @if($product->promo_price)
-                        <div class="text-muted small text-decoration-line-through mb-1">
+                        <div class="text-muted text-caption text-decoration-line-through mb-1">
                             Semula: <span style="text-decoration: line-through;">Rp {{ number_format($product->price, 0, ',', '.') }}</span>
                         </div>
-                        <h2 class="font-weight-bold text-dark mb-0">Rp {{ number_format($product->promo_price, 0, ',', '.') }}</h2>
-                        <span class="badge badge-danger px-2.5 py-1 mt-2 rounded-pill font-weight-500" style="font-size: 0.7rem;">Hemat Rp {{ number_format($product->price - $product->promo_price, 0, ',', '.') }}</span>
+                        <h2 class="font-weight-bold text-dark mb-0 text-heading-lg" style="color: var(--color-accent-orange) !important;">Rp {{ number_format($product->promo_price, 0, ',', '.') }}</h2>
+                        <span class="badge-feature mt-2" style="background-color: var(--color-interactive-grey); color: var(--color-text-primary);">Hemat Rp {{ number_format($product->price - $product->promo_price, 0, ',', '.') }}</span>
                     @else
-                        <h2 class="font-weight-bold text-dark">Rp {{ number_format($product->price, 0, ',', '.') }}</h2>
+                        <h2 class="font-weight-bold text-dark text-heading-lg">Rp {{ number_format($product->price, 0, ',', '.') }}</h2>
                     @endif
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4" style="border-top: 1px solid #d2d2d7;">
 
                 <!-- Interactive Color Swatches -->
                 @if($product->category->slug == 'iphone-pro' || $product->category->slug == 'iphone')
                 <div class="mb-4">
-                    <h6 class="font-weight-bold text-dark mb-2">Pilih Finish/Warna: <span id="color-label" class="text-muted font-weight-normal">Titanium Alami</span></h6>
+                    <h6 class="font-weight-bold text-dark text-body mb-2">Pilih Finish/Warna: <span id="color-label" class="text-muted font-weight-normal">Titanium Alami</span></h6>
                     <div class="d-flex gap-2 align-items-center mt-2">
                         @if($product->category->slug == 'iphone-pro')
                             <button type="button" class="color-swatch-btn active" data-color-name="Titanium Alami" style="background-color: #aba79e;" title="Titanium Alami"></button>
@@ -84,50 +84,50 @@
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4" style="border-top: 1px solid #d2d2d7;">
 
                 <!-- Interactive Storage Capacities -->
                 <div class="mb-4">
-                    <h6 class="font-weight-bold text-dark mb-2">Pilih Kapasitas: <span id="storage-label" class="text-muted font-weight-normal">128GB</span></h6>
+                    <h6 class="font-weight-bold text-dark text-body mb-2">Pilih Kapasitas: <span id="storage-label" class="text-muted font-weight-normal">128GB</span></h6>
                     <div class="row mt-2">
                         <div class="col-4">
                             <div class="storage-box-btn active" data-storage="128GB">
-                                <span class="d-block font-weight-bold text-dark h5 mb-1">128GB</span>
-                                <span class="text-muted small">Termasuk</span>
+                                <span class="d-block font-weight-bold text-dark text-body-lg mb-1">128GB</span>
+                                <span class="text-muted text-caption">Termasuk</span>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="storage-box-btn" data-storage="256GB">
-                                <span class="d-block font-weight-bold text-dark h5 mb-1">256GB</span>
-                                <span class="text-muted small">+ Rp 3.000k</span>
+                                <span class="d-block font-weight-bold text-dark text-body-lg mb-1">256GB</span>
+                                <span class="text-muted text-caption">+ Rp 3.000k</span>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="storage-box-btn" data-storage="512GB">
-                                <span class="d-block font-weight-bold text-dark h5 mb-1">512GB</span>
-                                <span class="text-muted small">+ Rp 6.000k</span>
+                                <span class="d-block font-weight-bold text-dark text-body-lg mb-1">512GB</span>
+                                <span class="text-muted text-caption">+ Rp 6.000k</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <hr class="my-4">
+                <hr class="my-4" style="border-top: 1px solid #d2d2d7;">
                 @endif
 
                 <!-- Product Specifications / Highlights -->
-                <div class="card border-0 p-3 mb-4 rounded-lg bg-light" style="border-radius: 14px !important;">
+                <div class="card-frost p-3 mb-4">
                     <div class="row text-center">
-                        <div class="col-6 border-right">
-                            <small class="text-muted d-block mb-1">Status Stok</small>
-                            <span class="font-weight-bold text-xs {{ $product->stock > 0 ? 'text-success' : 'text-danger' }}">
+                        <div class="col-6 border-right" style="border-right-color: #d2d2d7 !important;">
+                            <small class="text-muted d-block mb-1 text-caption">Status Stok</small>
+                            <span class="font-weight-bold text-body {{ $product->stock > 0 ? 'text-success' : 'text-danger' }}">
                                 <i class="fas {{ $product->stock > 0 ? 'fa-check-circle' : 'fa-times-circle' }} mr-1"></i>
                                 {{ $product->stock > 0 ? $product->stock . ' Unit Tersedia' : 'Habis' }}
                             </span>
                         </div>
                         <div class="col-6">
-                            <small class="text-muted d-block mb-1">Garansi Resmi</small>
-                            <span class="font-weight-bold text-xs text-dark">
-                                <i class="fas fa-shield-alt mr-1 text-primary"></i> 1 Tahun iBox
+                            <small class="text-muted d-block mb-1 text-caption">Garansi Resmi</small>
+                            <span class="font-weight-bold text-body text-dark">
+                                <i class="fas fa-shield-alt mr-1" style="color: var(--color-action-blue);"></i> 1 Tahun iBox
                             </span>
                         </div>
                     </div>
@@ -139,26 +139,26 @@
                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                     <div class="d-flex align-items-center mb-4">
                         <div style="width: 80px;" class="mr-3">
-                            <select name="qty" class="form-control text-center py-2 shadow-sm rounded-lg" style="height: 48px; border: 1px solid #d2d2d7;">
+                            <select name="qty" class="form-control text-center py-2 rounded-lg text-body font-weight-600" style="height: 42px; border: 1px solid #d2d2d7;">
                                 @for($i = 1; $i <= min($product->stock, 5); $i++)
                                     <option value="{{ $i }}">{{ $i }}</option>
                                 @endfor
                             </select>
                         </div>
                         <div class="flex-grow-1">
-                            <button type="submit" class="btn btn-pill-dark btn-lg btn-block font-weight-600 shadow-sm" style="height: 48px; font-size: 0.95rem;" {{ $product->stock <= 0 ? 'disabled' : '' }}>
-                                <i class="fas fa-shopping-bag mr-2"></i> Tambahkan ke Bag
+                            <button type="submit" class="btn-primary-filled btn-block text-body font-weight-600" style="height: 42px;" {{ $product->stock <= 0 ? 'disabled' : '' }}>
+                                Tambahkan ke Bag
                             </button>
                         </div>
                     </div>
                 </form>
 
-                <hr class="my-4">
+                <hr class="my-4" style="border-top: 1px solid #d2d2d7;">
 
                 <!-- Product Description -->
                 <div class="mt-4">
-                    <h6 class="font-weight-bold text-dark mb-2">Deskripsi Produk</h6>
-                    <p class="text-muted" style="line-height: 1.8; font-size: 0.9rem;">
+                    <h6 class="font-weight-bold text-dark text-body mb-2">Deskripsi Produk</h6>
+                    <p class="text-muted text-body" style="line-height: 1.8;">
                         {!! nl2br(e($product->description)) !!}
                     </p>
                 </div>
@@ -168,27 +168,31 @@
 
     <!-- Related Products -->
     @if(count($related_products) > 0)
-    <div class="mt-5 pt-5 border-top">
-        <h3 class="font-weight-bold text-dark mb-4 text-center">Rekomendasi Lain Untuk Anda</h3>
+    <div class="mt-5 pt-5 border-top" style="border-top: 1px solid #d2d2d7 !important;">
+        <h3 class="font-weight-bold text-dark mb-4 text-center text-heading-lg">Rekomendasi Lain Untuk Anda</h3>
         <div class="row mt-4">
             @foreach($related_products as $rel)
             <div class="col-6 col-md-3 mb-4">
-                <div class="card card-custom">
+                <div class="card card-custom card-white">
                     <div class="img-wrapper" style="height: 180px; padding: 1rem;">
-                        <a href="{{ route('product.show', $rel->slug) }}">
-                            <img src="{{ $rel->image ? asset('storage/' . $rel->image) : 'https://via.placeholder.com/400x300?text='.$rel->name }}" style="max-height: 150px;" alt="{{ $rel->name }}">
+                        <a href="{{ route('product.show', $rel->slug) }}" class="w-100 h-100 d-flex align-items-center justify-content-center text-decoration-none">
+                            @if($rel->image)
+                                <img src="{{ asset('storage/' . $rel->image) }}" style="max-height: 145px;" alt="{{ $rel->name }}">
+                            @else
+                                <i class="fab fa-apple fa-3x" style="opacity: 0.15; color: var(--color-text-primary);"></i>
+                            @endif
                         </a>
                     </div>
-                    <div class="card-body card-body-custom" style="padding: 1.25rem;">
+                    <div class="card-body card-body-custom" style="padding: 16px 0 0;">
                         <div>
                             <a href="{{ route('product.show', $rel->slug) }}" class="text-decoration-none text-dark">
-                                <h6 class="font-weight-bold mb-1 text-truncate">{{ $rel->name }}</h6>
+                                <h6 class="font-weight-bold mb-1 text-truncate text-body">{{ $rel->name }}</h6>
                             </a>
-                            <p class="small text-muted mb-2">{{ $rel->category->name }}</p>
+                            <p class="text-caption text-muted mb-2">{{ $rel->category->name }}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="font-weight-600 text-dark" style="font-size: 0.9rem;">Rp {{ number_format($rel->promo_price ?? $rel->price, 0, ',', '.') }}</span>
-                            <a href="{{ route('product.show', $rel->slug) }}" class="btn btn-custom btn-sm px-2.5 rounded-pill" style="font-size: 0.75rem;">Lihat</a>
+                            <span class="font-weight-600 text-dark text-body">Rp {{ number_format($rel->promo_price ?? $rel->price, 0, ',', '.') }}</span>
+                            <a href="{{ route('product.show', $rel->slug) }}" class="btn-outline-text text-caption" style="padding: 4px 12px; border-radius: 980px;">Ver</a>
                         </div>
                     </div>
                 </div>
@@ -203,8 +207,8 @@
 <style>
     /* Swatches style */
     .color-swatch-btn {
-        width: 32px;
-        height: 32px;
+        width: 28px;
+        height: 28px;
         border-radius: 50%;
         border: 2px solid transparent;
         padding: 0;
@@ -212,34 +216,34 @@
         transition: all 0.2s ease;
         outline: none;
         box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
-        margin-right: 10px;
+        margin-right: 12px;
     }
     .color-swatch-btn:focus {
         outline: none;
     }
     .color-swatch-btn.active {
-        border-color: var(--primary);
+        border-color: var(--color-action-blue);
         transform: scale(1.15);
         box-shadow: 0 0 10px rgba(0, 113, 227, 0.4);
     }
     
     /* Storage button style */
     .storage-box-btn {
-        border: 2px solid #d2d2d7;
+        border: 1px solid #d2d2d7;
         border-radius: 12px;
-        padding: 1rem 0.5rem;
+        padding: 16px 8px;
         text-align: center;
         cursor: pointer;
         transition: all 0.2s ease;
-        background: #ffffff;
+        background: var(--color-canvas-white);
     }
     .storage-box-btn:hover {
-        border-color: #86868b;
+        border-color: var(--color-text-secondary);
     }
     .storage-box-btn.active {
-        border-color: var(--primary);
-        background: rgba(0, 113, 227, 0.02);
-        box-shadow: 0 0 10px rgba(0, 113, 227, 0.1);
+        border-color: var(--color-action-blue);
+        background: rgba(0, 113, 227, 0.01);
+        box-shadow: 0 0 10px rgba(0, 113, 227, 0.05);
     }
     
     .gap-2 {
