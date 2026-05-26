@@ -1,52 +1,47 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-custom">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('homepage') }}">
-            <i class="fas fa-shopping-bag mr-2"></i>PakPras Store
+        <a class="navbar-brand d-flex align-items-center" href="{{ route('homepage') }}">
+            <i class="fab fa-apple mr-2" style="font-size: 1.35rem; vertical-align: middle;"></i> PakPras Store
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('homepage') }}">Home</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="catDropdown" role="button" data-toggle="dropdown">
-                        Kategori
-                    </a>
-                    <div class="dropdown-menu border-0 shadow-sm">
-                        @foreach($categories as $cat)
-                        <a class="dropdown-item" href="#">{{ $cat->name }}</a>
-                        @endforeach
-                    </div>
+                @foreach($categories as $cat)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('homepage', ['category' => $cat->slug]) }}">{{ $cat->name }}</a>
                 </li>
+                @endforeach
             </ul>
             <ul class="navbar-nav ml-auto align-items-center">
                 <li class="nav-item">
-                    <a class="nav-link position-relative" href="{{ route('cart.index') }}">
-                        <i class="fas fa-shopping-cart fa-lg"></i>
+                    <a class="nav-link position-relative mr-2" href="{{ route('cart.index') }}">
+                        <i class="fas fa-shopping-bag fa-lg text-white-50"></i>
                         @auth
                             @php $cartCount = Auth::user()->carts()->count(); @endphp
                             @if($cartCount > 0)
-                                <span class="badge badge-pill badge-danger position-absolute" style="top: 0; right: 0;">{{ $cartCount }}</span>
+                                <span class="badge badge-pill badge-primary position-absolute" style="top: -2px; right: -5px; font-size: 0.65rem; background-color: var(--primary);">{{ $cartCount }}</span>
                             @endif
                         @endauth
                     </a>
                 </li>
                 @guest
-                    <li class="nav-item ml-lg-3">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="btn btn-custom ml-lg-2" href="{{ route('register') }}">Daftar</a>
+                    <li class="nav-item ml-lg-2">
+                        <a class="btn btn-custom btn-sm" href="{{ route('register') }}">Daftar</a>
                     </li>
                 @else
-                    <li class="nav-item dropdown ml-lg-3">
-                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white-50" href="#" id="userDropdown" role="button" data-toggle="dropdown">
                             <i class="fas fa-user-circle mr-1"></i> {{ Auth::user()->name }}
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm">
+                        <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm mt-2">
                             @if(Auth::user()->role == 'admin')
                             <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
                                 <i class="fas fa-tachometer-alt mr-2 text-primary"></i>Dashboard Admin

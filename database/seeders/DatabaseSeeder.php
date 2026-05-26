@@ -43,100 +43,100 @@ class DatabaseSeeder extends Seeder
 
         // Categories and Products
         $categoriesData = [
-            'Elektronik' => [
+            'iPhone Pro' => [
                 [
-                    'name' => 'Smartphone Flagship X1',
-                    'description' => 'Smartphone premium dengan layar AMOLED 120Hz, kamera utama 108MP, dan baterai tahan lama untuk menunjang produktivitas harianmu.',
-                    'price' => 8999000,
-                    'promo_price' => 7999000,
+                    'name' => 'iPhone 15 Pro Max',
+                    'description' => 'Desain titanium tangguh dan ringan. Dilengkapi tombol Tindakan baru, sistem kamera iPhone paling andal dengan zoom optik 5x, dan chip A17 Pro yang bertenaga.',
+                    'price' => 24999000,
+                    'promo_price' => 22999000,
                     'stock' => 15,
                     'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'smartphone_flagship.jpg'
+                    'image_url' => 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_15_pro_max.jpg'
                 ],
                 [
-                    'name' => 'Wireless Headphone ANC',
-                    'description' => 'Nikmati kualitas audio premium tanpa gangguan dengan teknologi Active Noise Cancelling terkini. Baterai tahan hingga 30 jam pemakaian.',
-                    'price' => 1899000,
-                    'promo_price' => 1499000,
-                    'stock' => 25,
-                    'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'wireless_headphone.jpg'
-                ],
-                [
-                    'name' => 'Mechanical Keyboard RGB TKL',
-                    'description' => 'Keyboard mekanik dengan switch tactile yang nyaman digunakan untuk mengetik tugas maupun bermain game. Dilengkapi dengan backlit RGB kustom.',
-                    'price' => 749000,
-                    'promo_price' => null,
-                    'stock' => 30,
-                    'is_new' => false,
-                    'image_url' => 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'mechanical_keyboard.jpg'
-                ]
-            ],
-            'Pakaian' => [
-                [
-                    'name' => 'Kaos Polos Cotton Combed 30s',
-                    'description' => 'Kaos polos kasual terbuat dari 100% serat katun combed 30s yang sangat lembut, adem, dan menyerap keringat. Cocok untuk bersantai sehari-hari.',
-                    'price' => 85000,
-                    'promo_price' => 59000,
-                    'stock' => 50,
-                    'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'cotton_tshirt.jpg'
-                ],
-                [
-                    'name' => 'Jaket Bomber Classic Premium',
-                    'description' => 'Jaket bomber dengan desain modern klasik dan material anti air yang kokoh. Nyaman dipakai saat berkendara maupun hang out malam hari.',
-                    'price' => 299000,
-                    'promo_price' => 249000,
-                    'stock' => 12,
-                    'is_new' => false,
-                    'image_url' => 'https://images.unsplash.com/photo-1551028719-00167b16eac5?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'bomber_jacket.jpg'
-                ],
-                [
-                    'name' => 'Celana Chino Slim Fit Casual',
-                    'description' => 'Celana panjang chino dengan potongan slim fit terbuat dari bahan katun twill stretch premium yang elastis dan modis untuk dipakai formal maupun kasual.',
-                    'price' => 199000,
+                    'name' => 'iPhone 15 Pro',
+                    'description' => 'Titanium tingkat dirgantara dengan bagian belakang kaca matte bertekstur. Dilengkapi kamera utama 48 MP yang memukau dan port USB-C dengan kecepatan USB 3.',
+                    'price' => 20999000,
                     'promo_price' => null,
                     'stock' => 20,
                     'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'chino_pants.jpg'
-                ]
-            ],
-            'Alat Tulis' => [
-                [
-                    'name' => 'Buku Catatan Notebook A5 Hardcover',
-                    'description' => 'Buku catatan bersampul tebal (hardcover) bermotif elegan dengan kertas premium berwarna krem yang nyaman untuk mata saat menulis jurnal atau catatan sekolah.',
-                    'price' => 65000,
-                    'promo_price' => 49000,
-                    'stock' => 40,
-                    'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'notebook_hardcover.jpg'
+                    'image_url' => 'https://images.unsplash.com/photo-1695048133031-c0062a4fa969?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_15_pro.jpg'
                 ],
                 [
-                    'name' => 'Pulpen Gel 0.5mm Premium Black',
-                    'description' => 'Pulpen gel dengan ujung pen 0.5mm yang menghasilkan goresan tinta hitam sangat pekat, cepat kering, dan anti luber. Sangat nyaman digenggam.',
-                    'price' => 15000,
+                    'name' => 'iPhone 14 Pro Max',
+                    'description' => 'Cara baru yang ajaib untuk berinteraksi dengan iPhone lewat Dynamic Island. Layar Super Retina XDR yang Selalu Aktif dengan ProMotion, dan kamera 48 MP.',
+                    'price' => 19999000,
+                    'promo_price' => 18499000,
+                    'stock' => 8,
+                    'is_new' => false,
+                    'image_url' => 'https://images.unsplash.com/photo-1678652197831-2d180705cd2c?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_14_pro_max.jpg'
+                ]
+            ],
+            'iPhone' => [
+                [
+                    'name' => 'iPhone 15',
+                    'description' => 'Menghadirkan Dynamic Island, kamera Utama 48 MP, dan USB-C, semuanya dalam desain kaca berwarna yang tangguh dan aluminium.',
+                    'price' => 16499000,
+                    'promo_price' => 14999000,
+                    'stock' => 30,
+                    'is_new' => true,
+                    'image_url' => 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_15.jpg'
+                ],
+                [
+                    'name' => 'iPhone 15 Plus',
+                    'description' => 'Desain layar 6,7 inci yang lebih besar dengan Dynamic Island, ketahanan baterai yang luar biasa sepanjang hari, kamera Utama 48 MP, dan USB-C.',
+                    'price' => 18499000,
+                    'promo_price' => null,
+                    'stock' => 15,
+                    'is_new' => true,
+                    'image_url' => 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_15_plus.jpg'
+                ],
+                [
+                    'name' => 'iPhone 13',
+                    'description' => 'Sistem kamera ganda paling canggih yang pernah ada di iPhone. Chip A15 Bionic yang secepat kilat. Lompatan besar dalam daya tahan baterai.',
+                    'price' => 11999000,
+                    'promo_price' => 10999000,
+                    'stock' => 25,
+                    'is_new' => false,
+                    'image_url' => 'https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_13.jpg'
+                ]
+            ],
+            'Aksesoris' => [
+                [
+                    'name' => 'AirPods Pro (Gen 2) USB-C',
+                    'description' => 'AirPods Pro dilengkapi Peredam Kebisingan Aktif yang hingga 2x lebih hebat, Transparansi Adaptif, dan Audio Spasial Personal dengan pelacakan kepala dinamis.',
+                    'price' => 3999000,
+                    'promo_price' => 3799000,
+                    'stock' => 50,
+                    'is_new' => true,
+                    'image_url' => 'https://images.unsplash.com/photo-1588449668365-d15e397f6787?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'airpods_pro_2.jpg'
+                ],
+                [
+                    'name' => 'MagSafe Charger Official',
+                    'description' => 'Pengisi daya nirkabel MagSafe membuat pengisian daya nirkabel menjadi sangat cepat. Magnet yang sejajar sempurna terpasang pada iPhone Anda.',
+                    'price' => 899000,
                     'promo_price' => null,
                     'stock' => 100,
                     'is_new' => false,
-                    'image_url' => 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'gel_pen_premium.jpg'
+                    'image_url' => 'https://images.unsplash.com/photo-1622445262465-2481c4574875?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'magsafe_charger.jpg'
                 ],
                 [
-                    'name' => 'Pensil Gambar Set Sketsa Professional',
-                    'description' => 'Satu set lengkap pensil sketsa berkualitas tinggi mulai dari grade H, HB, hingga 8B. Dilengkapi kotak timah pelindung untuk kemudahan penyimpanan.',
-                    'price' => 125000,
-                    'promo_price' => 99000,
-                    'stock' => 8,
+                    'name' => 'iPhone Silicone Case MagSafe',
+                    'description' => 'Silicone Case dengan MagSafe dirancang oleh Apple untuk melengkapi iPhone Anda. Lapisan luar silikon yang halus terasa nyaman di tangan.',
+                    'price' => 999000,
+                    'promo_price' => 849000,
+                    'stock' => 45,
                     'is_new' => true,
-                    'image_url' => 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop',
-                    'image_name' => 'sketch_pencil_set.jpg'
+                    'image_url' => 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=600&auto=format&fit=crop',
+                    'image_name' => 'iphone_silicone_case.jpg'
                 ]
             ]
         ];

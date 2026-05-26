@@ -12,115 +12,119 @@
     <title>{{ $title ?? 'Toko Online' }}</title>
     <style>
         :root {
-            --primary: #4F46E5; /* Indigo */
-            --primary-hover: #4338CA;
-            --secondary: #10B981; /* Emerald */
-            --dark: #1F2937;
-            --light: #F3F4F6;
+            --primary: #0071e3; /* Apple Blue */
+            --primary-hover: #0077ed;
+            --secondary: #86868b; /* Apple text gray */
+            --dark: #1d1d1f; /* Apple menu dark gray */
+            --light: #f5f5f7; /* Apple store background */
+            --white: #ffffff;
         }
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: #F9FAFB;
-            color: #374151;
-            padding-top: 80px; /* For fixed navbar */
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            padding-top: 56px; /* For fixed navbar */
+            letter-spacing: -0.01em;
         }
         
-        /* Glassmorphism Navbar */
+        /* Apple Premium Glassmorphism Navbar */
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.85) !important;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background: rgba(22, 22, 23, 0.8) !important;
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: none;
             transition: all 0.3s ease;
+            height: 56px;
         }
         .navbar-brand {
-            font-weight: 700;
-            color: var(--primary) !important;
-            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f5f5f7 !important;
+            font-size: 1.15rem;
             letter-spacing: -0.5px;
+            transition: opacity 0.2s ease;
+        }
+        .navbar-brand:hover {
+            opacity: 0.8;
         }
         .nav-link {
-            font-weight: 500;
-            color: #4B5563 !important;
-            transition: color 0.3s ease;
-            margin: 0 5px;
-            border-radius: 8px;
+            font-weight: 400;
+            color: #cccccc !important;
+            font-size: 0.85rem;
+            transition: color 0.2s ease;
+            margin: 0 10px;
+            border-radius: 0;
+            padding: 4px 0;
         }
         .nav-link:hover, .nav-item.active .nav-link {
-            color: var(--primary) !important;
-            background-color: rgba(79, 70, 229, 0.05);
-        }
-
-        /* Hero Carousel */
-        #carousel {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            margin-bottom: 2rem;
-        }
-        .carousel-item img {
-            object-fit: cover;
-            height: 400px;
+            color: #ffffff !important;
+            background-color: transparent !important;
         }
 
         /* Section Titles */
         .section-title {
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 4px;
-            background: var(--primary);
-            bottom: -8px;
-            left: 25%;
-            border-radius: 2px;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            font-size: 2rem;
         }
 
-        /* Product Cards */
+        /* Apple Style Product Cards */
         .card-custom {
             border: none;
-            border-radius: 16px;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 18px;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
             overflow: hidden;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .card-custom:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+        .card-custom .img-wrapper {
+            background-color: #fafafa;
+            padding: 2rem 1.5rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 250px;
         }
         .card-custom img {
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+            max-height: 220px;
+            max-width: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
         }
         .card-custom:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
         .card-body-custom {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
         }
         .card-title-custom {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.015em;
         }
         .price-text {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.15rem;
         }
         .price-strike {
-            color: #9CA3AF;
+            color: var(--secondary);
             font-size: 0.9rem;
             text-decoration: line-through;
             margin-right: 8px;
@@ -128,30 +132,54 @@
 
         /* Footer */
         .footer-custom {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1.5rem;
-            margin-top: 4rem;
+            background: #f5f5f7;
+            color: #86868b;
+            padding: 3rem 0 2rem;
+            margin-top: 5rem;
+            font-size: 0.75rem;
+            border-top: 1px solid #d2d2d7;
         }
-        .footer-custom p {
-            color: #9CA3AF;
+        .footer-custom a {
+            color: #515154;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-custom a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        .footer-custom hr {
+            border-top: 1px solid #d2d2d7;
+            margin: 1.5rem 0;
         }
         
-        /* Buttons */
+        /* Buttons - Pill shaped Apple buttons */
         .btn-custom {
             background-color: var(--primary);
-            color: white;
-            border-radius: 8px;
-            padding: 0.5rem 1.5rem;
+            color: #ffffff;
+            border-radius: 99px;
+            padding: 0.4rem 1.2rem;
             font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
             border: none;
         }
         .btn-custom:hover {
             background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            color: white;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            color: #ffffff;
+            box-shadow: none;
+        }
+        .btn-pill-dark {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            border-radius: 99px;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .btn-pill-dark:hover {
+            background-color: #333336;
         }
     </style>
 </head>

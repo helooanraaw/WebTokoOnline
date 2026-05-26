@@ -2,36 +2,43 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
-                <h4 class="text-white mb-3"><i class="fas fa-shopping-bag text-primary mr-2"></i>Toko<span style="color: var(--primary);">Online</span></h4>
-                <p>Platform belanja online terpercaya dengan ribuan produk berkualitas dan harga terjangkau untuk kebutuhan Anda.</p>
-                <div class="mt-3">
-                    <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f fa-lg"></i></a>
-                    <a href="#" class="text-white mr-3"><i class="fab fa-twitter fa-lg"></i></a>
-                    <a href="#" class="text-white mr-3"><i class="fab fa-instagram fa-lg"></i></a>
+                <h6 class="font-weight-bold text-dark mb-3">
+                    <i class="fab fa-apple mr-2"></i>PakPras Store
+                </h6>
+                <p>Authorized Reseller Apple terpercaya di Indonesia. Kami menghadirkan iPhone orisinal dan aksesoris resmi dengan garansi resmi untuk mendukung gaya hidup digital Anda.</p>
+                <div class="mt-3 text-muted">
+                    <a href="#" class="mr-3 text-muted"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="mr-3 text-muted"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="mr-3 text-muted"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
-                <h5 class="text-white mb-3">Tautan Cepat</h5>
+                <h6 class="font-weight-bold text-dark mb-3">Jelajahi iStore</h6>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-muted text-decoration-none">Beranda</a></li>
-                    <li><a href="#" class="text-muted text-decoration-none">Produk</a></li>
-                    <li><a href="#" class="text-muted text-decoration-none">Tentang Kami</a></li>
-                    <li><a href="#" class="text-muted text-decoration-none">Kontak</a></li>
+                    <li><a href="{{ route('homepage') }}">Semua Produk</a></li>
+                    <li><a href="{{ route('homepage', ['category' => 'iphone-pro']) }}">iPhone Pro</a></li>
+                    <li><a href="{{ route('homepage', ['category' => 'iphone']) }}">iPhone</a></li>
+                    <li><a href="{{ route('homepage', ['category' => 'aksesoris']) }}">Aksesoris</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
-                <h5 class="text-white mb-3">Kontak</h5>
-                <ul class="list-unstyled text-muted">
-                    <li class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Jl. Pendidikan No. 1, Jakarta</li>
-                    <li class="mb-2"><i class="fas fa-phone mr-2"></i> +62 812 3456 7890</li>
-                    <li class="mb-2"><i class="fas fa-envelope mr-2"></i> info@tokoonline.com</li>
+                <h6 class="font-weight-bold text-dark mb-3">Dukungan & Kontak</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Apple Center, Lantai 2, Jakarta, Indonesia</li>
+                    <li class="mb-2"><i class="fas fa-phone mr-2"></i> (021) 500-APPLE</li>
+                    <li class="mb-2"><i class="fas fa-envelope mr-2"></i> support@pakpras-istore.com</li>
                 </ul>
             </div>
         </div>
-        <hr class="border-secondary mt-4 mb-4" style="border-color: #374151 !important;">
+        <hr>
         <div class="row">
-            <div class="col-12 text-center">
-                <p class="mb-0">&copy; {{ date('Y') }} Toko Online Powered by Laravel. All rights reserved.</p>
+            <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center text-muted">
+                <p class="mb-0">&copy; {{ date('Y') }} PakPras Store. All rights reserved. Apple, iPhone, and MagSafe are trademarks of Apple Inc.</p>
+                <div class="mt-2 mt-md-0">
+                    <a href="#" class="mr-3">Kebijakan Privasi</a>
+                    <a href="#" class="mr-3">Ketentuan Layanan</a>
+                    <a href="#">Legalitas</a>
+                </div>
             </div>
         </div>
     </div>
